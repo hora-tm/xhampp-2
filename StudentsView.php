@@ -23,7 +23,7 @@
 <?php
 include("db_connection.php");
 $conn = OpenCon();
-include("select.php"); //return colomns of students
+include("studentLogic.php"); //return colomns of students
 $columns = select_all_student($conn);
 
 ?>
@@ -83,10 +83,9 @@ $columns = select_all_student($conn);
 
                             <form method="POST" action="editStudent.php">
                                 <td class="d-flex justify-content-center">
-                                    <!-- <button class="btn btn-sm btn-warning"
-                                    onclick="openEdit()">Edit</button> -->
-                                    <input type="hidden" value="hide" name="+ . $fieldValue . +">
-                                    <input class="btn btn-sm btn-warning" type="submit" value="harchi">
+                                    <button class="btn btn-sm btn-warning" act>Edit</button>
+
+                                    <!-- <input class="btn btn-sm btn-warning" type="submit" value="edit"> -->
                             </form>
                             </td>
                         </tr>
