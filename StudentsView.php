@@ -28,7 +28,7 @@
         $columns =  include("includeSQL.php");
         ?>
         <?php
-        $ar = array("computer", "Mechanic", "Electerical");
+        // $ar = array(1, , "Electerical");
         for ($i = 0; $i < 3; $i++) {
         ?>
         <div class="container mt-5">
@@ -57,7 +57,7 @@
 
                         foreach ($columns as $key => $value) {
                             // echo ($ar[$i]);
-                            if ($value['major'] == $ar[$i]) {
+                            if ($value['fieldId'] == $i) {
                         ?>
 
 

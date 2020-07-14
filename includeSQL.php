@@ -1,5 +1,5 @@
 <?php
-        include("sqlConnection.php");
-        $columns  = query("SELECT * FROM student");
+include("sqlConnection.php");
+$columns  = select_all_student("SELECT * FROM student");
 
-        return $columns;
+return $columns;

@@ -1,23 +1,20 @@
 <?php
 $sql = '';
-function query($sql)
+
+function select_all_student($conn)
 {
-    $conn = new mysqli('localhost', 'root', "", 'db_first');
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } else {
-        if (!empty($sql)) {
-            $output = [];
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    // $output[] = ($row);
-                    $output[] =  ($row);
-                }
+    //global $conn;
+
+    $sql = "SELECT * FROM student "; /* , Field WHERE  Student.fieldId = Field.fieldId */
+    if ($result = $conn->query($sql)) {
+        echo '<form   method = "POST" action = "hey.php">';
+        if (($result->num_rows) > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $myrow[] = $row;
             }
+            return $myrow;
         } else {
-            echo 'jfkr';
+            echo "0 results";
         }
-        return $output;
     }
 }
