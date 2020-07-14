@@ -1,6 +1,4 @@
 <?php
-$sql = '';
-
 function select_all_student($conn)
 {
     //global $conn;

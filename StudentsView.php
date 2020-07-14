@@ -18,17 +18,26 @@
 
 
 
-<?php include("navbar.php"); ?>
+<!-- <?php include("navbar.php"); ?> -->
+
+<?php
+include("db_connection.php");
+$conn = OpenCon();
+include("select.php"); //return colomns of students
+$columns = select_all_student($conn);
+
+?>
 
 <body class="bg-secondary text-warning" style="font-family: sans-serif;">
     <div class="container-fluid d-flex justify-content-center  mt-5">
 
+        <!-- 
+        </?php
+        $columns =  include("includeSQL.php");
+        ?> -->
 
         <?php
-        $columns =  include("includeSQL.php");
-        ?>
-        <?php
-        // $ar = array(1, , "Electerical");
+        $ar = array("Bargh", "computer", "Electerical");
         for ($i = 0; $i < 3; $i++) {
         ?>
         <div class="container mt-5">
@@ -47,7 +56,7 @@
                             <th>studentID</th>
                             <th>FirstName</th>
                             <th>LastName</th>
-                            <th>FieldID</th>
+                            <th>Major</th>
                             <th>passedUnit</th>
                             <th>Grade</th>
                             <th>EditInfo</th>
@@ -57,18 +66,28 @@
 
                         foreach ($columns as $key => $value) {
                             // echo ($ar[$i]);
-                            if ($value['fieldId'] == $i) {
+                            if ($value['fieldId'] == $i + 1) {
                         ?>
 
 
                     <tbody>
                         <tr>
-                            <?php foreach ($value as $field => $fieldValue) { ?>
+                            <?php foreach ($value as $field => $fieldValue) {
+                                            if ($field == 'fieldId') { ?>
+                            <td class="align-self-start"><?php echo $ar[$fieldValue - 1] ?></td>
+                            <?php } else { ?>
 
                             <td class="align-self-start"><?php echo $fieldValue ?></td>
-                            <?php } ?>
-                            <td class="d-flex justify-content-center"><button class="btn btn-sm btn-warning"
-                                    onclick="openEdit()">Edit</button></td>
+                            <?php }
+                                        } ?>
+                            <form method="POST" action="editStudent.php">
+                                <td class="d-flex justify-content-center" name="this">
+                                    <!-- <button class="btn btn-sm btn-warning"
+                                    onclick="openEdit()">Edit</button> -->
+                                    <input type="hidden" value="hide" name="field">
+                                    <input class="btn btn-sm btn-warning" type="submit" value="harchi">
+                            </form>
+                            </td>
                         </tr>
                     </tbody>
 
@@ -87,11 +106,6 @@
 
     </div>
 
-    <script>
-    function openEdit() {
-        console.dir(document);
-    }
-    </script>
 </body>
 
 </html>

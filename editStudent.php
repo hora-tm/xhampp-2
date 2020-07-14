@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 
-<?php include("navbar.php"); ?>
+<?php
+// include("navbar.php"); 
+$_POST["this"];
+?>
 
 <body>
 
