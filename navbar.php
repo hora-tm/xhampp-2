@@ -15,28 +15,30 @@
     }
     </style>
 </head>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <div class="container-floid">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="main.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="MastersPage.html">MastersPage</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="studentView.php">StudentsPage</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="OfferdCourses.html">OfferdCourses</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="SelectUnit.html">SelectUnit</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 
-<body></body>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-5">
+        <div class="container-floid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="MastersPage.html">MastersPage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="studentsView.php">StudentsPage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="OfferdCourses.html">OfferdCourses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="SelectUnit.html">SelectUnit</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
 
 </html>

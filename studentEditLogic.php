@@ -1,12 +1,21 @@
 <?php
 
-include("select.php");
-// include("teacher.php");
-include("db_connection.php");
+include("studentLogic.php");
+include("teacher.php");
+include("db_connectionhora.php");
 $conn = OpenCon();
 global $temp_row;
+
+
+echo 'niwrnoneg';
+
+
+
+// function save()
+
 if (isset($_POST['student_save'])) {
 	$edited_name = $_POST['s_name_edited'];
+	echo $edited_name;
 	$edited_sId = $_POST['s_id_edited'];
 	$edited_lastName = $_POST['s_lastName_edited'];
 	$edited_fieldId = $_POST['s_fieldId_edited'];
@@ -15,31 +24,42 @@ if (isset($_POST['student_save'])) {
 	$past_value = $_POST['past_studentId'];
 	Student::update_student($edited_sId, $edited_name, $edited_lastName, $edited_fieldId, $edited_passedUnit, $edited_grade, $past_value, $conn);
 }
+
+
+
+
+
 // if(isset($_POST['show_teacher'])){
 // 		  echo "heloo";
 // 		  $field = $_POST['fieldId'];
 // 		  Teacher::same_field_techers($field);
 // 	  }
 
-// $myrow = Student::select_all_student($conn);
+$myrow = Student::select_all_student($conn);
 echo '<form   method = "POST" action = "index.php">';
 echo '<table>';
-foreach ($myrow as $row) {
-	$temp_row = $row;
-	echo '<tr><td>';
 
-	//if a student requests to edit his/her profile
-	if (isset($_POST['edit_' . $row['studentId']])) {
-		echo '<td><input type="text" value="' . $temp_row['studentId'] . '" name="s_id_edited"></td>
-        <td><input type="text" value="' . $temp_row['name'] . '"  name="s_name_edited"></td>
-        <td><input type="text" value="' . $temp_row['lastName'] . '"  name="s_lastName_edited"></td>
-        <td><input type="text" value="' . $temp_row['fieldId'] . '"  name="s_fieldId_edited"></td>
-        <td><input type="text" value="' . $temp_row['passedUnit'] . '"name="s_passedUnit_edited"></td>  
-        <td><input type="text" value="' . $temp_row['grade'] . '"  name="s_grade_edited"></td>
-		<td><input type="hidden" value="' . $temp_row['studentId'] . '" name="past_studentId"></td>             
-        <td><input type="submit" value="save" name="student_save"></td>';
-		echo '</tr>';
-	} else {
+
+
+foreach ($myrow as $row) {
+	if ($row['studentId'] == 1515) {
+		$temp_row = $row;
+		echo '<tr><td>';
+
+		// if a student requests to edit his/her profile ??????????????????????????????????????????????
+		// if (isset($_POST['edit_' . $row['studentId']])) {
+
+		// echo '<td><input type="text" value="' . $temp_row['studentId'] . '" name="s_id_edited"></td>
+		// <td><input type="text" value="' . $temp_row['name'] . '"  name="s_name_edited"></td>
+		// <td><input type="text" value="' . $temp_row['lastName'] . '"  name="s_lastName_edited"></td>
+		// <td><input type="text" value="' . $temp_row['fieldId'] . '"  name="s_fieldId_edited"></td>
+		// <td><input type="text" value="' . $temp_row['passedUnit'] . '"name="s_passedUnit_edited"></td>  
+		// <td><input type="text" value="' . $temp_row['grade'] . '"  name="s_grade_edited"></td>
+		// <td><input type="hidden" value="' . $temp_row['studentId'] . '" name="past_studentId"></td>             
+		// <td><input type="submit" value="save" name="student_save"></td>';
+		// echo '</tr>';
+		// } else {
+
 		echo  '<td>' . " | id : " . $row['studentId'] . '</td>' .
 			'<td>' . " | name : " . $row['name'] . '</td>' .
 			'<td>' . " | lastName : " . $row['lastName'] . '</td>' .
@@ -53,12 +73,11 @@ foreach ($myrow as $row) {
 					</td>';
 		echo '<td><input type="submit" value="edit" name="edit_' . $row['studentId'] . '"></td>';
 		echo '</tr>';
+		// }
 	}
+	echo '</table>';
+	echo '</form>';
 }
-echo '</table>';
-echo '</form>';
-
-
 
 
 

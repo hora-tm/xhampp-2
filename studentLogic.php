@@ -3,6 +3,11 @@
 $conn = OpenCon();*/
 //$conn = OpenCon();
 
+
+
+// echo "gabfe";
+
+
 class Student
 {
   // Properties
@@ -82,8 +87,8 @@ class Student
   {
     global $conn;
     $sql = " INSERT INTO Student (name, lastName, studentID ,fieldId ,passedUnit ,grade)
-        VALUES ('$this->name' ,'$this->lastName' ,'$this->studentId' ,
-            '$this->fieldId' ,'$this->passedUnit' ,'$this->grade')";
+VALUES ('$this->name' ,'$this->lastName' ,'$this->studentId' ,
+'$this->fieldId' ,'$this->passedUnit' ,'$this->grade')";
     if ($conn->query($sql) === TRUE) {
       echo "New record created successfully";
     } else {
@@ -91,13 +96,14 @@ class Student
     }
   }
 
+
   function select_all_student($conn)
   {
     //global $conn;
 
-    $sql = "SELECT * FROM student "; /* , Field WHERE  Student.fieldId = Field.fieldId */
+    $sql = "SELECT * FROM student "; /* , Field WHERE Student.fieldId = Field.fieldId */
     if ($result = $conn->query($sql)) {
-      echo '<form   method = "POST" action = "hey.php">';
+      echo '<form method="POST" action="studentEditView.php">';
       if (($result->num_rows) > 0) {
         while ($row = $result->fetch_assoc()) {
           $myrow[] = $row;
@@ -108,6 +114,7 @@ class Student
       }
     }
   }
+
 
 
 
@@ -122,16 +129,16 @@ class Student
     $conn
   ) {
     //global $conn;
-    $sql = "UPDATE student 
-            SET studentId='$s_id_eddited' 
-            , name ='$s_name_ediited'
-            , lastName ='$s_lastName_ediited'
-            , fieldId ='$s_fieldId_ediited'
-            , passedUnit ='$s_passedUnit_ediited'
-            , grade ='$s_grade_ediited'
-            WHERE studentId ='$past_studentId'";
+    $sql = "UPDATE student
+    SET studentId='$s_id_eddited'
+    , name ='$s_name_ediited'
+    , lastName ='$s_lastName_ediited'
+    , fieldId ='$s_fieldId_ediited'
+    , passedUnit ='$s_passedUnit_ediited'
+    , grade ='$s_grade_ediited'
+    WHERE studentId ='$past_studentId'";
     if ($result = $conn->query($sql)) {
-      echo 'نام به روز شد.';
+      echo 'Information Updated';
     }
   }
 }

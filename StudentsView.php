@@ -18,7 +18,9 @@
 
 
 
-<!-- <?php include("navbar.php"); ?> -->
+<?php
+include("navbar.php");
+?>
 
 <?php
 include("db_connectionhora.php");
@@ -31,10 +33,6 @@ $columns = Student::select_all_student($conn);
 <body class="bg-secondary text-warning" style="font-family: sans-serif;">
     <div class="container-fluid d-flex justify-content-center  mt-5">
 
-        <!-- 
-        </?php
-        $columns =  include("includeSQL.php");
-        ?> -->
 
         <?php
         $ar = array("Bargh", "computer", "Electerical");
@@ -66,6 +64,7 @@ $columns = Student::select_all_student($conn);
 
                         foreach ($columns as $key => $value) {
                             // echo ($ar[$i]);
+                            $post = 1515;
                             if ($value['fieldId'] == $i + 1) {
                         ?>
 
@@ -73,21 +72,29 @@ $columns = Student::select_all_student($conn);
                     <tbody>
                         <tr>
                             <?php foreach ($value as $field => $fieldValue) {
-                                            if ($field == 'fieldId') { ?>
+                                            if ($field == 'studentId') {
+                                                $post = $value['studentId'];
+                                                // echo "jj";
+                                            }
+                                            if ($field == 'fieldId') {
+                                        ?>
                             <td class="align-self-start"><?php echo $ar[$fieldValue - 1] ?></td>
                             <?php } else { ?>
 
                             <td class="align-self-start"><?php echo $fieldValue ?></td>
-                            <?php }
+                            <?php
+                                            }
+                                            // echo $post;
                                         } ?>
 
-                            <form method="POST" action="editStudent.php">
+                            <form method="POST" action="studentEditView.php">
                                 <td class="d-flex justify-content-center">
-                                    <button class="btn btn-sm btn-warning" act>Edit</button>
 
-                                    <!-- <input class="btn btn-sm btn-warning" type="submit" value="edit"> -->
+                                    <input class="btn btn-sm btn-warning" type="submit" value="edit"> </td>
+                                <?php echo '<td> <input type="hidden" value= "' . $post . '" name="postID"></td> ' ?>
+
+
                             </form>
-                            </td>
                         </tr>
                     </tbody>
 
@@ -107,5 +114,6 @@ $columns = Student::select_all_student($conn);
     </div>
 
 </body>
+<!-- <a href="/editStudent.php?id=</?= $_SESSION['islog'] ?>"> -->
 
 </html>
