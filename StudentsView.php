@@ -21,10 +21,10 @@
 <!-- <?php include("navbar.php"); ?> -->
 
 <?php
-include("db_connection.php");
+include("db_connectionhora.php");
 $conn = OpenCon();
 include("studentLogic.php"); //return colomns of students
-$columns = select_all_student($conn);
+$columns = Student::select_all_student($conn);
 
 ?>
 
