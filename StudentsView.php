@@ -80,11 +80,12 @@ $columns = select_all_student($conn);
                             <td class="align-self-start"><?php echo $fieldValue ?></td>
                             <?php }
                                         } ?>
+
                             <form method="POST" action="editStudent.php">
-                                <td class="d-flex justify-content-center" name="this">
+                                <td class="d-flex justify-content-center">
                                     <!-- <button class="btn btn-sm btn-warning"
                                     onclick="openEdit()">Edit</button> -->
-                                    <input type="hidden" value="hide" name="field">
+                                    <input type="hidden" value="hide" name="+ . $fieldValue . +">
                                     <input class="btn btn-sm btn-warning" type="submit" value="harchi">
                             </form>
                             </td>

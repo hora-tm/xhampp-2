@@ -9,7 +9,7 @@
 
 <?php
 // include("navbar.php"); 
-$_POST["this"];
+echo $_POST["row"];
 ?>
 
 <body>
