@@ -14,14 +14,14 @@
 </head>
 
 <body class="bg-light bg-dark">
-    <div class="container-fluid bg-secondary mt-md-5 py-5 col-10 ">
+    <div class="container-fluid bg-secondary mt-md-5 mb-5 py-5 col-10 ">
         <div class="h4  col-10 mt-5 mx-4 py-2">
             Masters Page
         </div>
 
         <?php
         include("navbar.php");
-        include("teacher.php");
+        include("masterLogic.php");
         // include("db_connectionhora.php");
         // $conn = OpenCon();
         ?>

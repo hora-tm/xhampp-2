@@ -1,7 +1,7 @@
 <?php
 
 include("studentLogic.php");
-include("teacher.php");
+// include("teacher.php");
 include("db_connectionhora.php");
 $conn = OpenCon();
 global $temp_row;
