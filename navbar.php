@@ -25,7 +25,7 @@
                     <a class="nav-link" href="main.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="MastersPage.html">MastersPage</a>
+                    <a class="nav-link" href="masterView.php">MastersPage</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="studentsView.php">StudentsPage</a>

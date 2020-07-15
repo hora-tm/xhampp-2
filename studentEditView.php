@@ -1,3 +1,13 @@
+<?php
+include("db_connectionhora.php");
+$conn = OpenCon();
+include("studentLogic.php"); //return colomns of students
+$myrows = Student::select_all_student($conn);
+$id = $_POST['postID'];
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,63 +45,71 @@
 
 
 
-<body class="bg-light">
+<body class="bg-secondary">
     <div class="container-field justify-content-center d-flex mt-5" id="container">
         <?php
 
-        // include("navbar.php");
+        include("navbar.php");
+        ?>
 
-        ?>
-        <?php
-        include("db_connectionhora.php");
-        $conn = OpenCon();
-        include("studentLogic.php"); //return colomns of students
-        $myrows = Student::select_all_student($conn);
-        ?>
 
 
         <?php foreach ($myrows as $row) {
-            if ($row['studentId'] == $_POST['postID']) {
+            if ($row['studentId'] == $id) {
 
                 $temp_row = $row;
         ?>
-        <div class=" container justify-content-center mt-5 bg-dark" id=" container" style="height:500px">
+        <div class="container col-10 col-sm-11 col-md-10 col-lg-8 justify-content-center mt-5 pb-5 bg-dark"
+            id=" container" style="height:500px">
+
+            <div class=" row d-flex " id="rows">
+
+
+            </div>
 
             <div class=" row d-flex py-5 mt-5" id="rows">
-                <div class="col-10 ">
+                <div class="col-10">
                     <!-- inputs -->
-                    <div class="input-groups d-flex mt-5">
+                    <div class="input-groups d-flex flex-wrap flex-md-nowrap mt-5">
 
-
-                        <?php   //print inputs     
+                        <?php
+                                's_studentId_edited';
+                                //print inputs     
                                 foreach ($temp_row as $field => $w) {
                                 ?>
-                        <?php
-                                    echo '<td><input class="col-2 form-control" type="text" value="' . $temp_row[$field] . '" name="s_' . $field . '_edited"></td> '
-                                    ?>
+                        <form method="POST" action="studentEditView.php">
+                            <?php
+                                        echo '<td><input class="col-4 col-md-2 col- form-control" type="text" value="' . $temp_row[$field] . '" name="s_' . $field . '_edited"></td> '
+                                        ?>
 
-                        <!-- save button -->
-                        <?php }
+                            <!-- save button -->
+
+
+                            <?php }
 
                                 echo '<td><input type="hidden" value="' . $temp_row['studentId'] . '" name="past_studentId"></td>';
-                                echo '<td><input class="btn btn-secondary btn-sm col-1 ml-2" type="submit" value="save" name="student_save"></td>';
-                                echo '<td> <input type="hidden" value= "' . $_POST['postID'] . '" name="postID"></td> ';
+                                echo '<td><input class="btn btn-secondary  btn-sm col-2 ml-2" type="submit" value="save" name="student_save"></td>';
+                                echo '<td> <input type="hidden" value= "' . $temp_row['studentId'] . '" name="postID"></td> ';
                                 // include('studentEditLogic.php');
                             }
                         }
-                        ?>
+                            ?>
+                        </form>
+                        </tr>
+
                     </div>
                 </div>
             </div>
 
 
-            <div class="row d-flex mt-4 bg-warning mx-5">
-                <div class="col-6">
+            <div class="row d-flex mt-lg-4 mt-1 bg-warning mx-5">
+                <div class="col-6 col-md-5">
                     <?php
                             // echo "gabfe";
                             if (isset($_POST['student_save'])) {
                                 // echo "hhkjikijuh";
                                 $edited_name = $_POST['s_name_edited'];
+                                // $edited_name = "hora";
                                 // echo $edited_name;
                                 $edited_sId = $_POST['s_studentId_edited'];
                                 $edited_lastName = $_POST['s_lastName_edited'];
@@ -115,6 +133,7 @@
 
 
         </div>
+    </div>
 
 </body>
 

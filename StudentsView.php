@@ -35,15 +35,20 @@ $columns = Student::select_all_student($conn);
 
 
         <?php
-        $ar = array("Bargh", "computer", "Electerical");
+        $major = array("Bargh", "computer", "Electerical");
         for ($i = 0; $i < 3; $i++) {
         ?>
         <div class="container mt-5">
             <div class="row mt-5  justify-content-between">
                 <div class="col-4 col-lg-6  h4 text-dark">
-                    <?php echo $ar[$i] ?> Students Table
+                    <?php echo $major[$i] ?> Students Table
                 </div>
-                <div class="col-1 col-lg-2"> <button class="btn btn-sm btn-warning">MastersPage </button></div>
+                <div class="col-1 col-lg-2">
+                    <form method="POST" action="masterView.php">
+                        <?php echo ' <input class="btn btn-sm btn-warning" type="submit" value="MastersPage"> '; ?>
+                        <?php echo '<input type="hidden" value= "' . $i . '" name="major"> '; ?>
+                    </form>
+                </div>
             </div>
 
             <!-- CreateTable -->
@@ -64,7 +69,7 @@ $columns = Student::select_all_student($conn);
 
                         foreach ($columns as $key => $value) {
                             // echo ($ar[$i]);
-                            $post = 1515;
+                            $postStudentId = 1515;
                             if ($value['fieldId'] == $i + 1) {
                         ?>
 
@@ -73,12 +78,12 @@ $columns = Student::select_all_student($conn);
                         <tr>
                             <?php foreach ($value as $field => $fieldValue) {
                                             if ($field == 'studentId') {
-                                                $post = $value['studentId'];
+                                                $postStudentId = $value['studentId'];
                                                 // echo "jj";
                                             }
                                             if ($field == 'fieldId') {
                                         ?>
-                            <td class="align-self-start"><?php echo $ar[$fieldValue - 1] ?></td>
+                            <td class="align-self-start"><?php echo $major[$fieldValue - 1] ?></td>
                             <?php } else { ?>
 
                             <td class="align-self-start"><?php echo $fieldValue ?></td>
@@ -91,7 +96,7 @@ $columns = Student::select_all_student($conn);
                                 <td class="d-flex justify-content-center">
 
                                     <input class="btn btn-sm btn-warning" type="submit" value="edit"> </td>
-                                <?php echo '<td> <input type="hidden" value= "' . $post . '" name="postID"></td> ' ?>
+                                <?php echo '<td> <input type="hidden" value= "' . $postStudentId . '" name="postID"></td> ' ?>
 
 
                             </form>
