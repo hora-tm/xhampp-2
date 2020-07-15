@@ -9,18 +9,34 @@
     </script>
 
     <style>
-    body {
+    /* body {
         /* background-color: rgb(113, 114, 114); */
-        font-size: 17px;
+    /* font-size: 17px; */
+    /* } */
+    @media screen and (min-width: 601px) {
+
+        body,
+        h5 {
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+
+        body {
+            font-size: 10px;
+        }
+
+
     }
     </style>
 </head>
 
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-5">
+    <nav class="navbar navbar-expand bg-dark navbar-dark fixed-top mb-5 ">
         <div class="container-floid">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav col-4 col-md-12">
                 <li class="nav-item">
                     <a class="nav-link" href="main.html">Home</a>
                 </li>
@@ -39,6 +55,6 @@
             </ul>
         </div>
     </nav>
-</body>
+
 
 </html>

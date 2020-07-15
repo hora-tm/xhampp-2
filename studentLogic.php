@@ -3,10 +3,7 @@
 $conn = OpenCon();*/
 //$conn = OpenCon();
 
-
-
-// echo "gabfe";
-
+include("fatherOfLogics.php");
 
 class Student
 {

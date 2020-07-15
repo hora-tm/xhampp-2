@@ -35,13 +35,14 @@ $columns = Student::select_all_student($conn);
 
 
         <?php
-        $major = array("Bargh", "computer", "Electerical");
+        global $major;
+
         for ($i = 0; $i < 3; $i++) {
         ?>
         <div class="container mt-5">
             <div class="row mt-5  justify-content-between">
                 <div class="col-4 col-lg-6  h4 text-dark">
-                    <?php echo $major[$i] ?> Students Table
+                    <?php echo $majorName[$i] ?> Students Table
                 </div>
                 <div class="col-1 col-lg-2">
                     <form method="POST" action="masterView.php">
@@ -83,7 +84,7 @@ $columns = Student::select_all_student($conn);
                                             }
                                             if ($field == 'fieldId') {
                                         ?>
-                            <td class="align-self-start"><?php echo $major[$fieldValue - 1] ?></td>
+                            <td class="align-self-start"><?php echo $majorName[$fieldValue - 1] ?></td>
                             <?php } else { ?>
 
                             <td class="align-self-start"><?php echo $fieldValue ?></td>
