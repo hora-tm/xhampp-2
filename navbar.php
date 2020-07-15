@@ -13,22 +13,75 @@
         /* background-color: rgb(113, 114, 114); */
     /* font-size: 17px; */
     /* } */
-    @media screen and (min-width: 601px) {
+
+
+
+    /* @media screen and (max-width: 768px) {
+
+        body {
+            font-size: 12px;
+        }
+
+    } */
+
+    html {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 576px) {
+        html {
+            font-size: 0.5rem;
+        }
+    }
+
+    @media (min-width: 576px) {
+        html {
+            font-size: 0.75rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        html {
+            font-size: 0.75rem;
+        }
+    }
+
+    @media (min-width: 992px) {
+        html {
+            font-size: 0.75rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        html {
+            font-size: 1rem;
+        }
+    }
+
+
+    li {
+        font-weight: bold;
+    }
+
+
+    /* @media screen and (min-width: 1201px) {
 
         body,
         h5 {
-            font-size: 20px;
+            font-size: 17px;
         }
     }
 
-    @media screen and (max-width: 600px) {
+
+
+    @media screen and (max-width: 1200px) {
 
         body {
-            font-size: 10px;
+            font-size: 16px;
         }
 
 
-    }
+    } */
     </style>
 </head>
 
@@ -38,7 +91,7 @@
         <div class="container-floid">
             <ul class="navbar-nav col-4 col-md-12">
                 <li class="nav-item">
-                    <a class="nav-link" href="main.html">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="masterView.php">MastersPage</a>
@@ -47,7 +100,7 @@
                     <a class="nav-link" href="studentsView.php">StudentsPage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="OfferdCourses.html">OfferdCourses</a>
+                    <a class="nav-link" href="course_view.php">Courses</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="SelectUnit.html">SelectUnit</a>

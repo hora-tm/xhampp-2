@@ -1,6 +1,6 @@
 <?php
-include("db_connectionhora.php");
-$conn = OpenCon();
+// include("db_connectionhora.php");
+// $conn = OpenCon();
 include("studentLogic.php"); //return colomns of students
 $myrows = Student::select_all_student($conn);
 $id = $_POST['postID'];

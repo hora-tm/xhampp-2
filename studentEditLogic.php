@@ -1,9 +1,11 @@
 <?php
 
 include("studentLogic.php");
+include("fatherOfLogics.php");
+
 // include("teacher.php");
-include("db_connectionhora.php");
-$conn = OpenCon();
+// include("db_connectionhora.php");
+// $conn = OpenCon();
 global $temp_row;
 
 

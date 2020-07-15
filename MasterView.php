@@ -26,12 +26,8 @@
         // $conn = OpenCon();
         ?>
 
-        <div class="col-5 h3">
-
-        </div>
-
         <!-- tables container -->
-        <div class="container  col-md-10 col-8 mt-5  bg-secondary pb-5 pt-3 pl-0 ml-0 mx-md-auto">
+        <div class="container col-md-10 col-8 mt-5  bg-secondary pb-5 pt-3 pl-0 ml-0 mx-md-auto">
 
             <!-- contain each table -->
             <div class="mt-md-5 col-6 col-md-12  justify-content-center">

@@ -1,6 +1,5 @@
 <?php
-include("db_connectionhora.php");
-$conn = OpenCon();
+
 include("fatherOfLogics.php");
 
 

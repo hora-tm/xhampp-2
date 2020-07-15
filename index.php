@@ -67,43 +67,10 @@
     </style>
 
 </head>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <div class="container-floid">
 
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarSupportedContent" aria-expanded="false">
-            <span><i class="fa fa-navicon"></i></span>
-
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive  ">
-            <ul class="navbar-nav md-auto">
-                <li class="nav-item active">
-                    <a class="nav-link " href="main.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="MastersPage.html">MastersPage</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="StudentsView.php">StudentsPage</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="OfferdCourses.html">OfferdCourses</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="SelectUnit.html">SelectUnit</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- bvhjdb -->
-
-    </div>
-</nav>
-
-<!-- ////////////////////////////////kfsnkksgsmgmsg  -->
-
+<?php
+include("navbar.php")
+?>
 
 <body class=" justify-content-around bg-secondary text-white" style="font-family :sans-serif ">
 
@@ -155,7 +122,7 @@
                 <img style="" class="img-fluid rounded-circle" src="me2.png" />
             </div>
             <!-- rightside -->
-            <div class="col-6 col-lg-8 col-xl-8 col-sm-7 col-md-8 align-self-center  ">
+            <div class="col-6 col-lg-8 col-xl-8 col-sm-7 col-md-8 align-self-center ">
                 <div class="row  h-100 py-4  d-block  align-items-center ">
                     <h5 class=' font-weight-bold text-warning'> Laya Nikkhah </h5>
                     <div class=''> A Programmer
