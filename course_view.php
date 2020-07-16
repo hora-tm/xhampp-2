@@ -12,13 +12,13 @@
     </script>
 </head>
 
-<body class="bg-dark">
+<body>
     <?php
 	include("navbar.php");
 	include("courseLogic.php");
 	?>
 
-    <div class="container-fluid bg-secondary mt-md-5 mb-5 py-5 col-10">
+    <div class="container-fluid mt-md-5 mb-5 py-5 col-12 ">
 
         <!-- contain each table -->
 
@@ -27,10 +27,20 @@
 
 		?>
         <!-- </?php for ($i = 0; $i < 4; $i++) {?> -->
-        <div class="container  col-sm-12 col-12 mt-5  bg-secondary pb-5 pt-3 pl-0 ml-0 ">
+        <div class="container col-10 col-sm-12 col-md-10 mt-5 pb-5 pt-3 ml-0 px-auto mx-auto">
+            <div class="row d-flex mx-auto mb-5">
+                <div id="mainH" class=" h2 col-5 col-md-6 col-lg-5 mt-5 pl-4 font-weight-bold ml-4">
+                    Courses Information
+                </div>
+                <div class="col-1 h4 mt-5">
+                    <img class="h4" src="https://img.icons8.com/pastel-glyph/64/000000/books.png" />
+                </div>
+            </div>
+
+
             <?php for ($i = 0; $i < 4; $i++) { ?>
             <div class=" mt-md-5 table-responsive text-nowrap justify-content-center mx-md-auto">
-                <table class="table bg-light">
+                <table class="table">
                     <div class="font-weight-bold h5  mt-5 ">
                         <?php if ($i < 3) {
 								echo $majorName[$i] . " Courses" ?>
@@ -41,7 +51,7 @@
 
 
                     </div>
-                    <thead class="thead-dark">
+                    <thead class="">
                         <tr>
                             <th class="th-sm">Name</th>
                             <th>Code</th>

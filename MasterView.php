@@ -13,11 +13,9 @@
 
 </head>
 
-<body class="bg-light bg-dark">
-    <div class="container-fluid bg-secondary mt-md-5 mb-5 py-5 col-10 ">
-        <div class="h4  col-10 mt-5 mx-4 py-2">
-            Masters Page
-        </div>
+<body>
+    <div class="container-fluid mt-md-5 mb-3 py-5 col-10 ">
+
 
         <?php
         include("navbar.php");
@@ -27,37 +25,46 @@
         ?>
 
         <!-- tables container -->
-        <div class="container col-md-10 col-8 mt-5  bg-secondary pb-5 pt-3 pl-0 ml-0 mx-md-auto">
+        <div class="container col-md-10 col-12 mt-5 pb-5 pt-2 pl-0 ml-0 mx-sm-auto">
+            <div class="row d-flex mx-auto mb-5">
+                <div id="mainH" class=" h2 col-5 col-md-8 col-lg-6 mt-5 pl-4 font-weight-bold ml-4">
+                    Masters Information
+                </div>
+                <div class="col-1 h2 mt-5">
+                    <img class="" src="https://img.icons8.com/material-sharp/24/000000/teacher.png" />
+                </div>
+            </div>
 
             <!-- contain each table -->
-            <div class="mt-md-5 col-6 col-md-12  justify-content-center">
+            <div class="mt-md-12 col-7 col-sm-11 justify-content-center mx-sm-auto ml-3">
                 <table class="table ">
 
                     <div class="h5">
-                        <?php if (isset($_POST['major'])) { ?>
-                        <?php echo $majorName[$_POST['major']] ?>
+                        <?php if (isset($_POST['majorId'])) {
+
+                            echo $majorName[$_POST['majorId']] . "Masters" ?>
 
                         <?php   }
                         ?>
-                        Masters
+
                     </div>
                     <thead class="thead-dark">
                         <tr>
-                            <th>Firstname</th>
+                            <th>Name</th>
                             <th>Lastname</th>
-                            <th>Email</th>
-                            <th>Email</th>
-                            <th>Email</th>
+                            <th>Teacher ID</th>
+                            <th>Field ID</th>
+                            <th>academic Rate</th>
 
                         </tr>
 
                     </thead>
-                    <tbody class="bg-light">
+                    <tbody>
 
 
                         <?php
-                        if (isset($_POST['major'])) {
-                            $masterFieldId =  $_POST['major'];
+                        if (isset($_POST['majorId'])) {
+                            $masterFieldId =  $_POST['majorId'] + 1;
                             // include('teacher.php');
                             $row = Teacher::same_field_techers($masterFieldId);
 
@@ -71,6 +78,7 @@
                             }
                         } else {
                             $row = Teacher::select_all_teacher();
+                            // print_r($row);
                             foreach ($row as $rowfield => $value) { //value is a array with fild and value
                                 echo ' <tr> ';
                                 foreach ($value as $field => $fieldValue) {

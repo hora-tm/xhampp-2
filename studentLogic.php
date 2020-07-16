@@ -115,25 +115,50 @@ VALUES ('$this->name' ,'$this->lastName' ,'$this->studentId' ,
 
 
 
+  //   function update_student(
+  //     $s_id_eddited,
+  //     $s_name_ediited,
+  //     $s_lastName_ediited,
+  //     $s_fieldId_ediited,
+  //     $s_grade_ediited,
+  //     $s_passedUnit_ediited,
+  //     $past_studentId,
+  //     $conn
+  //   ) {
+  //     //global $conn;
+  //     $sql = "UPDATE student
+  //     SET studentId='$s_id_eddited'
+  //     , name ='$s_name_ediited'
+  //     , lastName ='$s_lastName_ediited'
+  //     , fieldId ='$s_fieldId_ediited'
+  //     , passedUnit ='$s_passedUnit_ediited'
+  //     , grade ='$s_grade_ediited'
+  //     WHERE studentId ='$past_studentId'";
+  //     if ($result = $conn->query($sql)) {
+  //       echo 'Information Updated';
+  //     }
+  //   }
+  // }
+
   function update_student(
     $s_id_eddited,
     $s_name_ediited,
     $s_lastName_ediited,
     $s_fieldId_ediited,
-    $s_grade_ediited,
     $s_passedUnit_ediited,
+    $s_grade_ediited,
     $past_studentId,
     $conn
   ) {
     //global $conn;
-    $sql = "UPDATE student
-    SET studentId='$s_id_eddited'
-    , name ='$s_name_ediited'
-    , lastName ='$s_lastName_ediited'
-    , fieldId ='$s_fieldId_ediited'
-    , passedUnit ='$s_passedUnit_ediited'
-    , grade ='$s_grade_ediited'
-    WHERE studentId ='$past_studentId'";
+    $sql = "UPDATE student 
+        SET studentId='$s_id_eddited' 
+        , name ='$s_name_ediited'
+        , lastName ='$s_lastName_ediited'
+        , fieldId ='$s_fieldId_ediited'
+        , passedUnit ='$s_passedUnit_ediited'
+        , grade ='$s_grade_ediited'
+        WHERE studentId ='$past_studentId'";
     if ($result = $conn->query($sql)) {
       echo 'Information Updated';
     }

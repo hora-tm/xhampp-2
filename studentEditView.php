@@ -1,13 +1,3 @@
-<?php
-// include("db_connectionhora.php");
-// $conn = OpenCon();
-include("studentLogic.php"); //return colomns of students
-$myrows = Student::select_all_student($conn);
-$id = $_POST['postID'];
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,52 +35,70 @@ $id = $_POST['postID'];
 
 
 
-<body class="bg-secondary">
-    <div class="container-field justify-content-center d-flex mt-5" id="container">
-        <?php
+<body>
+    <div class="container-field justify-content-center mt-5 pt-5" id="container">
 
+        <?php
+        global $id;
         include("navbar.php");
         ?>
-
-
-
-        <?php foreach ($myrows as $row) {
-            if ($row['studentId'] == $id) {
-
-                $temp_row = $row;
-        ?>
-        <div class="container col-10 col-sm-11 col-md-10 col-lg-8 justify-content-center mt-5 pb-5 bg-dark"
-            id=" container" style="height:500px">
-
-            <div class=" row d-flex " id="rows">
-
-
+        <div class="container col-10 col-sm-11 col-md-10 col-lg-8 justify-content-center mt-5 pb-5 pt-4"
+            id=" container">
+            <div class="col-5 col-md-4 bg-warning text-dark mt-3 mx-auto">
+                <?php
+                include("studentLogic.php"); //return colomns of students
+                $myrows = Student::select_all_student($conn);
+                if (isset($_POST['student_save'])) {
+                    $id = $_POST['s_studentId_edited'];
+                    // echo $id;
+                    $edited_name = $_POST['s_name_edited'];
+                    $edited_sId = $_POST['s_studentId_edited'];
+                    $edited_lastName = $_POST['s_lastName_edited'];
+                    $edited_fieldId = $_POST['s_fieldId_edited'];
+                    $edited_passedUnit = $_POST['s_passedUnit_edited'];
+                    $edited_grade = $_POST['s_grade_edited'];
+                    $past_value = $_POST['past_studentId'];
+                    Student::update_student(
+                        $edited_sId,
+                        $edited_name,
+                        $edited_lastName,
+                        $edited_fieldId,
+                        $edited_passedUnit,
+                        $edited_grade,
+                        $past_value,
+                        $conn
+                    );
+                } else {
+                    $id = $_POST['postID'];
+                }
+                ?>
             </div>
 
-            <div class=" row d-flex py-5 mt-5" id="rows">
+
+            <?php
+            $myrows = Student::select_all_student($conn);
+
+            foreach ($myrows as $row) {
+                // $temp_row['s_studentId_edited'] = 0;
+                if ($row['studentId'] == $id) {
+                    $temp_row = $row;
+            ?>
+
+            <div class=" row d-flex mt-2" id="rows">
                 <div class="col-10">
                     <!-- inputs -->
-                    <div class="input-groups d-flex flex-wrap flex-md-nowrap mt-5">
-
+                    <div class="input-groups d-flex flex-wrap flex-md-nowrap mt-4">
                         <?php
-                                's_studentId_edited';
-                                //print inputs     
                                 foreach ($temp_row as $field => $w) {
                                 ?>
                         <form method="POST" action="studentEditView.php">
                             <?php
                                         echo '<td><input class="col-4 col-md-2 col- form-control" type="text" value="' . $temp_row[$field] . '" name="s_' . $field . '_edited"></td> '
                                         ?>
-
                             <!-- save button -->
-
-
                             <?php }
-
                                 echo '<td><input type="hidden" value="' . $temp_row['studentId'] . '" name="past_studentId"></td>';
                                 echo '<td><input class="btn btn-secondary  btn-sm col-2 ml-2" type="submit" value="save" name="student_save"></td>';
-                                echo '<td> <input type="hidden" value= "' . $temp_row['studentId'] . '" name="postID"></td> ';
-                                // include('studentEditLogic.php');
                             }
                         }
                             ?>
@@ -102,26 +110,7 @@ $id = $_POST['postID'];
             </div>
 
 
-            <div class="row d-flex mt-lg-4 mt-1 bg-warning mx-5">
-                <div class="col-6 col-md-5">
-                    <?php
-                            // echo "gabfe";
-                            if (isset($_POST['student_save'])) {
-                                // echo "hhkjikijuh";
-                                $edited_name = $_POST['s_name_edited'];
-                                // $edited_name = "hora";
-                                // echo $edited_name;
-                                $edited_sId = $_POST['s_studentId_edited'];
-                                $edited_lastName = $_POST['s_lastName_edited'];
-                                $edited_fieldId = $_POST['s_fieldId_edited'];
-                                $edited_passedUnit = $_POST['s_passedUnit_edited'];
-                                $edited_grade = $_POST['s_grade_edited'];
-                                $past_value = $_POST['past_studentId'];
-                                Student::update_student($edited_sId, $edited_name, $edited_lastName, $edited_fieldId, $edited_passedUnit, $edited_grade, $past_value, $conn);
-                            }
-                            ?>
-                </div>
-            </div>
+
 
 
 

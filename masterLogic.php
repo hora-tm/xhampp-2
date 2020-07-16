@@ -44,7 +44,7 @@ class Teacher
         global $conn;
         $sql = "SELECT * FROM Teacher "; /*, Field WHERE  Student.fieldId = Field.fieldId*/
         if ($result = $conn->query($sql)) {
-            echo '<form   method = "POST" action = "hey.php">';
+            // echo '<form   method = "POST" action = "hey.php">';
             if (($result->num_rows) > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $myrow[] = $row;

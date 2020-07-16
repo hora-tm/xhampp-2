@@ -30,10 +30,19 @@ $columns = Student::select_all_student($conn);
 
 ?>
 
-<body class="bg-secondary text-warning" style="font-family: sans-serif;">
-    <div class="container-fluid d-flex justify-content-center  mt-5">
+<body class=" " style="font-family: sans-serif;">
+    <div class="container-fluid d-flex justify-content-center my-5 ">
 
-        <div class="container col-sm-12 col-md-10 mt-5 bg-danger">
+        <div class="container col-sm-12 col-md-10 mt-4">
+            <div class="row d-flex mx-auto">
+                <div id="mainH" class="h1 col-5 mt-5 pl-4 font-weight-bold ml-4 ">
+                    Student Information
+                </div>
+                <div class="col-1 h1 mt-5">
+                    <img class="h1" src="https://img.icons8.com/ios-glyphs/30/000000/student-center.png" />
+                </div>
+            </div>
+
             <?php
             // global $major;
 
@@ -41,23 +50,23 @@ $columns = Student::select_all_student($conn);
             ?>
 
 
-            <div class="bg-info py-5 my-5 ">
+            <div class=" py-5 my-3 ">
                 <div class="row mt-5 ml-3 justify-content-between">
-                    <div class="font-weight-bold col-6 col-lg-5 ml-2 h5 text-dark">
+                    <div class="font-weight-bold col-6 col-lg-5 ml-2 h5 ">
                         <?php echo $majorName[$i] ?> Students Table
                     </div>
                     <div class="col-3 col-sm-3 col-md-3 mb-2 ">
                         <form method="POST" action="masterView.php">
-                            <?php echo ' <input class="btn btn-sm btn-warning" type="submit" value="MastersPage"> '; ?>
-                            <?php '<input type="hidden" value="' . $i . '" name="major">' ?>
+                            <input class="btn btn-sm " type="submit" value="MastersPage">
+                            <?php echo '<input type="hidden" value="' . $i  . '" name="majorId">' ?>
                         </form>
                     </div>
                 </div>
 
                 <!-- CreateTable -->
                 <div class="col-12">
-                    <table class="table table-bordered table-dark table-responsive-md">
-                        <thead class="thead-light text-warning">
+                    <table class="table table-bordered table-striped table-borderless table-responsive-md">
+                        <thead class=" ">
                             <tr class="">
                                 <th>studentID</th>
                                 <th>FirstName</th>
@@ -66,6 +75,7 @@ $columns = Student::select_all_student($conn);
                                 <th>passedUnit</th>
                                 <th>Grade</th>
                                 <th>EditInfo</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <?php
@@ -96,14 +106,16 @@ $columns = Student::select_all_student($conn);
                                                 // echo $post;
                                             } ?>
 
+
                                 <form method="POST" action="studentEditView.php">
                                     <td class="d-flex justify-content-center">
 
                                         <input class="btn btn-sm btn-warning" type="submit" value="edit"> </td>
-                            </tr>
-                            <?php '<input type="hidden" value= "' . $postStudentId . '" name="postID"> ' ?>
-                            </form>
+                                    <?php echo '<td> <input type="hidden" value= "' . $postStudentId . '" name="postID"></td> ' ?>
 
+
+                                </form>
+                            </tr>
                         </tbody>
 
                 </div>
